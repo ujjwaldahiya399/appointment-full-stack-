@@ -11,4 +11,6 @@ router.get('/appointments', homeController.getAppointments);
 
 router.post('/appointments', homeController.postAppointments);
 
+router.post('/delete-appointments', homeController.postDeleteAppointment);
+
 module.exports = router;

@@ -41,3 +41,24 @@ exports.postAppointments = (req, res, next) => {
     });
 };
     
+
+exports.postDeleteAppointment = (req, res, next) => {
+    const appointmentId = req.body.appointmentId;
+
+    User.findByPk(appointmentId)
+    .then((appointment) => {
+        if (!appointment) {
+            res.redirect('/appointments');
+        }
+        console.log(appointment);
+        return appointment.destroy();
+    })
+    .then(result => {
+        console.log("Destroy appointment");
+        res.redirect('/appointments');
+    })
+    .catch(err => {
+        // res.render(path.join(__dirname, '..', 'views', 'main', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
+    })
+    // console.log(appointmentId);
+}
