@@ -1,8 +1,39 @@
-<%- include('../includes/head.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Appointment App</title>
+    
+    <!-- Link to Tailwind CSS stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../public/main.css">
 </head>
 
 <body>
-    <%- include('../includes/navigation.ejs') %>
+        <div class="flex flex-col min-h-[100dvh]">
+            <!-- Header -->
+            <header class="header-section px-4 lg:px-6 h-14 flex items-center">
+                <a class="flex items-center justify-center" href="/" rel="ugc">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="h-6 w-6">
+                        <path
+                            d="m8 3 4 8 5-5 5 15H2L8 3z">
+                        </path>
+                    </svg>
+                    <span class="sr-only">Acme Inc</span>
+                </a>
+                <nav class="navbar ml-auto flex gap-4 sm:gap-6">
+                    <a class="text-sm font-medium hover:underline underline-offset-4 active" href="/home" rel="ugc">Home</a>
+                    <a class="text-sm font-medium hover:underline underline-offset-4" href="/appointments" rel="ugc">Appointments</a>
+                    <a class="text-sm font-medium hover:underline underline-offset-4" href="#" rel="ugc">About</a>
+                    <a class="text-sm font-medium hover:underline underline-offset-4" href="#" rel="ugc">Contact</a>
+                </nav>
+            </header>
+        </div>
         <!-- Main Content -->
         <main class="flex-1">
             <section class="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-200 to-indigo-300">
@@ -63,8 +94,28 @@
             </section>
         </main>
         <!-- Footer -->
-        <%- include('../includes/footer.ejs') %>
+        <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="h-6 w-6">
+                    <path
+                        d="m8 3 4 8 5-5 5 15H2L8 3z">
+                    </path>
+                </svg>
+                <span class="text-xs font-semibold tracking-wide/[-0.025] text-gray-600 dark:text-gray-400">
+                    Acme Inc
+                </span>
+            </div>
+            <div class="flex gap-4 sm:gap-6">
+                <a class="text-xs hover:underline underline-offset-4" href="#" rel="ugc">Terms of Service</a>
+                <a class="text-xs hover:underline underline-offset-4" href="#" rel="ugc">Privacy</a>
+            </div>
+        </footer>
 
     </div>
 
-<%- include('../includes/end.ejs') %>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

@@ -2,21 +2,21 @@ const User = require('../models/userData');
 const path = require('path');
 
 exports.getHome = (req, res, next) => {
-    res.render(path.join(__dirname, '..', 'views', 'main', 'index.ejs'));
+    res.render(path.join(__dirname, '..', 'views', 'index.html'));
 };
 
 exports.getAppointments = (req, res, next) => {
     User.findAll()
     .then((usersData) => {
         console.log(usersData);
-        res.render(path.join(__dirname, '..', 'views', 'main', 'appointment.ejs'), {
+        res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), {
           users: usersData,
           path: '/appointments'
         });
     })
     .catch(err => {
         console.log(err);
-        res.render(path.join(__dirname, '..', 'views', 'main', 'appointment.ejs'), { errorMessage: 'Failed to fetch appointments.' });
+        res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), { errorMessage: 'Failed to fetch appointments.' });
     });
 };
 
@@ -37,7 +37,7 @@ exports.postAppointments = (req, res, next) => {
     })
     .catch(err => {
         console.log(err);
-        res.render(path.join(__dirname, '..', 'views', 'main', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
+        res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
     });
 };
     
@@ -58,7 +58,7 @@ exports.postDeleteAppointment = (req, res, next) => {
         res.redirect('/appointments');
     })
     .catch(err => {
-        // res.render(path.join(__dirname, '..', 'views', 'main', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
+        // res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
     })
     // console.log(appointmentId);
 }
