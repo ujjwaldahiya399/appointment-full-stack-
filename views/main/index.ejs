@@ -1,0 +1,70 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+        <!-- Main Content -->
+        <main class="flex-1">
+            <section class="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-200 to-indigo-300">
+                <div class="container px-4 md:px-6">
+                    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                        <div class="space-y-2">
+                            <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                                Book Appointment
+                            </h1>
+                            <p class="max-w-[600px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                                Book an appointment for our software services and experience top-notch solutions.
+                            </p>
+                            <div class="pb-4"></div>
+                        </div>
+                    </div>
+                    <div class="mx-auto grid max-w-4xl items-start gap-6 md:grid-cols-2 md:gap-12 lg:max-w-5xl">
+                        <form class="grid gap-4" id="appointmentForm" action="/appointments" method="POST">
+                            <input type="text" name="name" class="input-field flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Name" id="name">
+                            <input type="email" class="input-field flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Email" name="email" id="email">
+                            <input type="tel" class="input-field flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                placeholder="Phone" name="phone" id="phone"> 
+                            <textarea class="input-field-textarea input-field flex w-full rounded-md border border-input bg-background px-3 py-8 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[100px]"
+                                placeholder="Message" name="message" id="message"></textarea>
+                            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                type="submit">Submit</button>
+                        </form>
+                        <div class="flex flex-col gap-4">
+                            <div class="grid gap-1">
+                                <h3 class="text-lg font-bold">Software Development</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
+                                    Our experienced team will provide you with cutting-edge software solutions tailored to
+                                    your needs.
+                                </p>
+                            </div>
+                            <div class="grid gap-1">
+                                <h3 class="text-lg font-bold">Consultation</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
+                                    Get expert advice and guidance on your software projects from our consultants.
+                                </p>
+                            </div>
+                            <div class="grid gap-1">
+                                <h3 class="text-lg font-bold">Maintenance</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
+                                    Ensure your software runs smoothly with our maintenance services.
+                                </p>
+                            </div>
+                            <div class="grid gap-1">
+                                <h3 class="text-lg font-bold">Training</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">
+                                    Equip your team with the necessary skills through our software training programs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <%- include('../includes/footer.ejs') %>
+
+    </div>
+
+<%- include('../includes/end.ejs') %>

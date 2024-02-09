@@ -1,0 +1,260 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* styles.css */
+
+.active {
+  background-color: red;
+}
+
+.header-section {
+    padding: 0 40px;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-section a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  
+  .header-section a svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  
+  .header-section .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .navbar {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative; /* Ensure the underline offset works */
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .navbar a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.15em; /* Adjust the underline offset */
+    width: 100%;
+    height: 0.1em; /* Underline thickness */
+    background-color: currentColor;
+  }
+  
+/* Background Gradient */
+.bg-gradient-to-b {
+    background: linear-gradient(to bottom, #a3d6f5, #6c90fa);
+  }
+  
+  /* Text Colors */
+  .text-primary {
+    color: #1A202C;
+  }
+  
+  .text-gray-600 {
+    color: #45474b;
+  }
+  
+  .placeholder-text {
+    color: #CBD5E0;
+  }
+  
+  .hover-text {
+    color: #FFFFFF;
+  }
+  
+  /* Button */
+  .btn-primary {
+    background-color: #3f510c;
+    color: #FFFFFF;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2B6CB0;
+  }
+  
+  /* Border and Input */
+  .border-color {
+    border-color: #CBD5E0;
+  }
+  
+  .input-background {
+    background-color: #EDF2F7;
+  }
+  
+  /* Additional Custom Styles */
+  .bg-background {
+    background-color: #f0f0f0; /* Example background color */
+  }
+  
+  .text-primary-foreground {
+    color: #007bff; /* Example text color */
+  }
+  /* Extracted inline styles */
+  .header {
+      padding-left: 16px;
+      padding-right: 24px;
+      height: 3.5rem;
+  }
+  
+  .logo {
+      display: flex;
+      align-items: center;
+  }
+  
+  .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 16px;
+  }
+  
+  .nav-link {
+      font-size: 0.875rem;
+  }
+  
+  .main-content {
+      flex: 1;
+  }
+  
+  .hero-section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      background: linear-gradient(to bottom, #90cdf4, #8b5cf6);
+  }
+  
+  .container {
+      padding-left: 16px;
+      padding-right: 16px;
+      max-width: 100%;
+  }
+  
+  .hero-content {
+      margin-bottom: 2rem;
+  }
+  
+  .hero-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+  }
+  
+  .hero-description {
+      max-width: 37.5rem;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .grid-container {
+      max-width: 64rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-gap: 1.5rem;
+  }
+  
+  .contact-form {
+      display: grid;
+      gap: 1rem;
+  }
+  
+  .form-input {
+      height: 2.5rem;
+      width: 100%;
+      border-radius: 0.375rem;
+      border-width: 1px;
+      background-color: #f7fafc;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      font-size: 0.875rem;
+  }
+  
+  .form-textarea {
+      min-height: 100px;
+      width: 100%;
+      border-radius: 0.375rem;
+      border-width: 1px;
+      background-color: #f7fafc;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      font-size: 0.875rem;
+  }
+  
+  .submit-button {
+      display: inline-flex;
+      justify-content: center;
+      white-space: nowrap;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      background-color: #3b82f6;
+      color: #f3f4f6;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+  }
+  
+  .service-info {
+      display: flex;
+      gap: 1rem;
+  }
+  
+  .service {
+      display: grid;
+      gap: 0.125rem;
+  }
+  
+  .service-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+  }
+  
+  .service-description {
+      font-size: 0.875rem;
+  }
+  
+  .footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-top-width: 1px;
+  }
+  
+  .footer-info {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+  }
+  
+  .company-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+  }
+  
