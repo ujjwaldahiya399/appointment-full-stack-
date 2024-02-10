@@ -35,18 +35,18 @@ exports.getUsers = async (req, res, next) => {
     }
 };
 
-// exports.deleteUser = async (req, res) => {
-//     try {
-//       if (!req.params.id) {
-//         return res.status(400).json({ err: "ID is missing" });
-//       }
+exports.deleteUser = async (req, res) => {
+    try {
+      if (!req.params.id) {
+        return res.status(400).json({ err: "ID is missing" });
+      }
   
-//       const uId = req.params.id;
-//       await User.destroy({
-//         where: { id: uId },
-//       });
-//       res.status(200);
-//     } catch (err) {
-//       console.log(err);
-//     }
-// };
+      const uId = req.params.id;
+      await User.destroy({
+        where: { id: uId },
+      });
+      res.status(200);
+    } catch (err) {
+      console.log(err);
+    }
+};

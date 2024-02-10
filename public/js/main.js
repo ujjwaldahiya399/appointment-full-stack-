@@ -107,7 +107,8 @@ function renderAppointments() {
                                         <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
                                     </svg>`;
                 deleteBtn.addEventListener('click', () => {
-                    handleDeleteAppointment(appointment.id); 
+                    deleteAppointment(appointment.id, tr); 
+                    
                 });
 
                 tdActions.appendChild(editBtn);
@@ -126,12 +127,27 @@ function renderAppointments() {
         });
 }
 
-function handleEditAppointment(appointmentId) {
+renderAppointments();
+
+function handleEditAppointment(appointmentId, tr) {
     console.log('Edit appointment with ID:', appointmentId);
 }
 
-function handleDeleteAppointment(appointmentId) {
+function deleteAppointment(appointmentId, tr) {
     console.log('Delete appointment with ID:', appointmentId);
+    axios.delete(`http://localhost:3000/delete-user/${appointmentId}`)
+    .then(res => {
+        removeUserFromScreen(appointmentId, tr);
+    })
+    .catch(err => console.log(err));    
 }
 
-renderAppointments();
+function removeUserFromScreen(appointmentId, tr) {
+    const parentNode = document.querySelector('tbody'); 
+    const childNodeToDelete = tr;
+
+    if (childNodeToDelete !== null) {
+        parentNode.removeChild(childNodeToDelete);
+        window.location.reload();
+    }
+}

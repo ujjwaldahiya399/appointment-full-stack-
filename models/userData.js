@@ -9,19 +9,21 @@ const User = sequelize.define('user', {
     },
     name: {
         type: Sequelize.STRING,
-
+        allowNull: false
     },
     email: {
         type: Sequelize.STRING,
-
+        allowNull: false,
+        unqiue: true
     },
     phone: {
         type: Sequelize.DOUBLE,
-
+        allowNull: false,
+        unqiue: true
     },
     message: {
         type: Sequelize.STRING,
-
+        allowNull: false
     }
 });
 
