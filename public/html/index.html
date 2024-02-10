@@ -8,8 +8,6 @@
     
     <!-- Link to Tailwind CSS stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="../public/main.css">
 </head>
 
 <body>
@@ -27,16 +25,16 @@
                     <span class="sr-only">Acme Inc</span>
                 </a>
                 <nav class="navbar ml-auto flex gap-4 sm:gap-6">
-                    <a class="text-sm font-medium hover:underline underline-offset-4 active" href="/home" rel="ugc">Home</a>
-                    <a class="text-sm font-medium hover:underline underline-offset-4" href="/appointments" rel="ugc">Appointments</a>
+                    <a class="text-sm font-medium hover:underline underline-offset-4 active" href="/" rel="ugc">Home</a>
+                    <a class="text-sm font-medium hover:underline underline-offset-4" href="#" rel="ugc">Appointments</a>
                     <a class="text-sm font-medium hover:underline underline-offset-4" href="#" rel="ugc">About</a>
                     <a class="text-sm font-medium hover:underline underline-offset-4" href="#" rel="ugc">Contact</a>
                 </nav>
             </header>
         </div>
         <!-- Main Content -->
-        <main class="flex-1">
-            <section class="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-200 to-indigo-300">
+        <main class="flex-2 ">
+            <section class="w-full pt-12 bg-gradient-to-b from-blue-200 to-indigo-300">
                 <div class="container px-4 md:px-6">
                     <div class="flex flex-col items-center justify-center space-y-4 text-center">
                         <div class="space-y-2">
@@ -49,8 +47,8 @@
                             <div class="pb-4"></div>
                         </div>
                     </div>
-                    <div class="mx-auto grid max-w-4xl items-start gap-6 md:grid-cols-2 md:gap-12 lg:max-w-5xl">
-                        <form class="grid gap-4" id="appointmentForm" action="/appointments" method="POST">
+                    <div class="mx-auto grid max-w-4xl items-start gap-6 md:grid-cols-2 md:gap-12 lg:max-w-7xl">
+                        <form class="grid gap-4" id="appointment-form" action="/add-user" method="POST">
                             <input type="text" name="name" class="input-field flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                 placeholder="Name" id="name">
                             <input type="email" class="input-field flex h-10 w-full rounded-md border border-input bg-background px-3 py-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -62,33 +60,68 @@
                             <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
                                 type="submit">Submit</button>
                         </form>
-                        <div class="flex flex-col gap-4">
-                            <div class="grid gap-1">
-                                <h3 class="text-lg font-bold">Software Development</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">
-                                    Our experienced team will provide you with cutting-edge software solutions tailored to
-                                    your needs.
-                                </p>
+                            <div class="flex flex-col w-full min-h-screen">
+                                <header class="flex items-center h-16 px-4 border-b shrink-0 md:px-6">
+                                    <div class="flex items-center space-x-5 ">
+                                        <h1 class="font-semibold text-lg md:text-2xl">Appointments</h1>
+                                    </div>
+                                    <div class="flex items-center w-full gap-4 md:ml-auto md:gap-2 lg:gap-4">
+                                        <form class="flex-1 ml-auto sm:flex-initial">
+                                            <div class="relative">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    class="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400"
+                                                >
+                                                    <circle cx="11" cy="11" r="8"></circle>
+                                                    <path d="m21 21-4.3-4.3"></path>
+                                                </svg>
+                                                <input
+                                                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+                                                    placeholder="Search products..."
+                                                    type="search"
+                                                />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </header>
+                                <main class="flex flex-col min-h-screen flex flex-1 flex-col gap-4 p-4 md:gap-8">
+                                    <div class="border shadow-sm rounded-lg">
+                                        <div class="relative w-full overflow-auto">
+                                            <table class="w-full caption-bottom text-sm">
+                                                <thead class="[&amp;_tr]:border-b">
+                                                    <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                                                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                            Name
+                                                        </th>
+                                                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                            Email
+                                                        </th>
+                                                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+                                                            Phone Number
+                                                        </th>
+                                                        <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[100px]">
+                                                            Actions
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                        
+                                                <tbody class="[&amp;_tr:last-child]:border-0 tbody">
+                        
+                                                </tbody>
+                                                
+                                            </table>
+                                        </div>
+                                    </div>
+                                </main>
                             </div>
-                            <div class="grid gap-1">
-                                <h3 class="text-lg font-bold">Consultation</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">
-                                    Get expert advice and guidance on your software projects from our consultants.
-                                </p>
-                            </div>
-                            <div class="grid gap-1">
-                                <h3 class="text-lg font-bold">Maintenance</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">
-                                    Ensure your software runs smoothly with our maintenance services.
-                                </p>
-                            </div>
-                            <div class="grid gap-1">
-                                <h3 class="text-lg font-bold">Training</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">
-                                    Equip your team with the necessary skills through our software training programs.
-                                </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -115,7 +148,8 @@
 
     </div>
 
-    <script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>        
+    <script src="../js/main.js" type="module"></script>
 </body>
 
 </html>

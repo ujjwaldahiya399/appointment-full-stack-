@@ -1,64 +1,52 @@
 const User = require('../models/userData');
+const axios = require('axios');
 const path = require('path');
 
 exports.getHome = (req, res, next) => {
-    res.render(path.join(__dirname, '..', 'views', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'html', 'index.html'));
 };
 
-exports.getAppointments = (req, res, next) => {
-    User.findAll()
-    .then((usersData) => {
-        console.log(usersData);
-        res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), {
-          users: usersData,
-          path: '/appointments'
+exports.addUsers = async (req, res, next) => {
+    try {
+        const { name, email, phone, message } = req.body;
+
+        const userData = await User.create({
+            name: name,
+            email: email,
+            phone: phone,
+            message: message
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), { errorMessage: 'Failed to fetch appointments.' });
-    });
+        console.log(userData);
+        res.status(201).json({ userData });
+        console.log(userData);
+    } catch (err) {
+        res.status(500).json({ error: err.message }); // Sending error message
+    }
 };
 
-exports.postAppointments = (req, res, next) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const phone = req.body.phone;
-    const message = req.body.message;
-    User.create({
-        name: name,
-        email: email,
-        phone: phone,
-        message: message
-    })
-    .then(result => {
-        console.log(result);
-        res.redirect('/appointments');
-    })
-    .catch(err => {
-        console.log(err);
-        res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
-    });
+exports.getUsers = async (req, res, next) => {
+    try {
+        const users = await User.findAll();
+        console.log(users);
+        res.status(200).json({ allUsers: users });
+        
+    } catch (err) {
+        res.status(500).json({ error: err.message }); // Sending error message
+    }
 };
-    
 
-exports.postDeleteAppointment = (req, res, next) => {
-    const appointmentId = req.body.appointmentId;
-
-    User.findByPk(appointmentId)
-    .then((appointment) => {
-        if (!appointment) {
-            res.redirect('/appointments');
-        }
-        console.log(appointment);
-        return appointment.destroy();
-    })
-    .then(result => {
-        console.log("Destroy appointment");
-        res.redirect('/appointments');
-    })
-    .catch(err => {
-        // res.render(path.join(__dirname, '..', 'views', 'appointment.ejs'), { errorMessage: 'Failed to create appointment.' });
-    })
-    // console.log(appointmentId);
-}
+// exports.deleteUser = async (req, res) => {
+//     try {
+//       if (!req.params.id) {
+//         return res.status(400).json({ err: "ID is missing" });
+//       }
+  
+//       const uId = req.params.id;
+//       await User.destroy({
+//         where: { id: uId },
+//       });
+//       res.status(200);
+//     } catch (err) {
+//       console.log(err);
+//     }
+// };
