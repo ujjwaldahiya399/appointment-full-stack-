@@ -138,6 +138,7 @@ function deleteAppointment(appointmentId, tr) {
     axios.delete(`http://localhost:3000/delete-user/${appointmentId}`)
     .then(res => {
         removeUserFromScreen(appointmentId, tr);
+        console.log("inside delete appointment");
     })
     .catch(err => console.log(err));    
 }
@@ -145,8 +146,9 @@ function deleteAppointment(appointmentId, tr) {
 function removeUserFromScreen(appointmentId, tr) {
     const parentNode = document.querySelector('tbody'); 
     const childNodeToDelete = tr;
-
+    console.log(childNodeToDelete)
     if (childNodeToDelete !== null) {
+        console.log(childNodeToDelete)
         parentNode.removeChild(childNodeToDelete);
         window.location.reload();
     }

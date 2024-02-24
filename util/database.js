@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('bookingAppointmentApp', 'root', 'sahil@664', {
+const sequelize = new Sequelize('node-complete', 'root', 'ujjwal@420', {
     dialect: 'mysql',
     host: 'localhost'
 });
